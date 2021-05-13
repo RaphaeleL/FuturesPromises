@@ -24,7 +24,7 @@ int main(){
     
     std::thread thread_add(add, std::move(promise_add), a, b);
     std::thread thread_sub(sub, std::move(promise_sub), a, b);
-
+    
     std::cout << a << " + " << b << " = " << result_add.get() << std::endl;
     std::cout << a << " - " << b << " = " << result_sub.get() << std::endl;
 
