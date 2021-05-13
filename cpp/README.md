@@ -2,9 +2,9 @@
 
 Futures und Promises und deren Umsetzung in C++
 
-<img src="assets/../../assets/cpp.png"
+<!--<img src="assets/../../assets/cpp.png"
      alt="C++ Logo"
-     style="width:200px;height:200px;display:block; margin-left:auto; margin-right:auto;"/>
+     style="width:200px;height:200px;display:block; margin-left:auto; margin-right:auto;"/>-->
 
 > Diese Arbeit wurde von Raphaele Salvatore Licciardo im Rahmen der Modellbasierte Softwareentwicklung Vorlesung an der Hochschule Karlruhe - Technik und Wirtschaft im SS 2021 durchgeführt.  
 
@@ -109,7 +109,7 @@ Somit kann man `std::future` Objekt als Fire and Forget Job ausgeführt werden. 
 In der folgenden Variante ist eine Beispielhafte Implementierung um in C++ ein solches Prinzip zu erreichen:
 
 ```cpp
-void version_1() {
+void blocking() {
     std::async(std::launch::async,[]{
         std::this_thread::sleep_for(std::chrono::seconds(2));
         std::cout << "Blocking> Thread 1" << std::endl;

@@ -2,10 +2,10 @@
 
 Futures und Promises und deren Umsetzung in Go
 
-<img src="assets/../../assets/go.png"
+<!--<img src="assets/../../assets/go.png"
      alt="Go Logo"
-     style="height:200px;display:block; margin-left:auto; margin-right:auto;"/>
-
+     style="height:200px;display:block; margin-left:auto; margin-right:auto;"/>-->
+	 
 > Diese Arbeit wurde von Raphaele Salvatore Licciardo im Rahmen der Modellbasierte Softwareentwicklung Vorlesung an der Hochschule Karlruhe - Technik und Wirtschaft im SS 2021 durchgeführt.  
 
 Für die Nebenläufige Programmiersprache Go gibt es keine offizielle Future and Promise Bibliothek wie es beispielsweise in C++ der Fall ist. Schließlich braucht man dies auch nicht, dank der Channels können Future and Promise Objekte einfach nachgebildet werden. 
