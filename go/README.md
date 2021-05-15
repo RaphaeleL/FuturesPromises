@@ -15,12 +15,11 @@ Für die Nebenläufige Programmiersprache Go gibt es keine offizielle Future and
 - [Futures and Promises in Go](#futures-and-promises-in-go)
 	- [Inhaltsverzeichnis](#inhaltsverzeichnis)
 	- [Beispiele](#beispiele)
-		- [Basic](#basic)
-		- [HTTP Anfrage](#http-anfrage)
+		- [Channels](#channels)
 	- [Starten der Beispiele](#starten-der-beispiele)
 ## Beispiele 
 
-### Basic
+### Channels
 
 > Dieses Basis Beispiel basiert auf der Vorlesung Autonome Systeme. 
 
@@ -39,7 +38,7 @@ func future(function func() (int, bool)) Future {
 }
 ```
 
-Das hier in Go implementierte Future führt eine Ansychrone Berechnung aus um einen Wert zu erzeugen. Sobald diese Berechnung abgeschlossen ist, wird dieser dank dem Kanal an den Future gebunden. Hier wird ebenso ein boolescher Rückgabeparameter angelegt, um darzustellen, ob die Berechnung erfolgreich war oder fehlgeschlagen ist. Ein Fehlschlag kann ein erkannter Rechenregel Bruch sein oder ein einfracher Timeout einer HTTP Anfrage.
+Das hier in Go implementierte Future führt eine Ansychrone Berechnung aus um einen Wert zu erzeugen. Sobald diese Berechnung abgeschlossen ist, wird dieser dank dem Kanal an den Future gebunden. Hier wird ebenso ein boolescher Rückgabeparameter angelegt, um darzustellen, ob die Berechnung erfolgreich war oder fehlgeschlagen ist. Ein Fehlschlag kann ein erkannter Rechenregel Bruch sein oder ein einfacher Timeout einer HTTP Anfrage.
 
 ```go
 func (future Future) get() (int, bool) {
@@ -47,6 +46,7 @@ func (future Future) get() (int, bool) {
 	return fType.value, fType.status
 }
 ```
+
 Die Get Methode fragt den an den Future beziehungsweise Kanal gebunden Wert ab. Falls dieser noch nichtvorhanden ist, wird entsprechend blockiert.
 
 ```go
@@ -74,15 +74,6 @@ func (future Future) onFailure(callback func()) {
 ```
 
 Auch der `onFailure()` Aufruf ist nicht blockierend. Dieser nimmt ebenso eine Callback Funktion entgegeben. Analog zu oben, trifft diese nur ein, wenn die Berechnung des Ergebnisses fehlgeschlagen ist. 
-
-### HTTP Anfrage
-
-Angenommen, wir lösen mehrere http-Anfragen aus (sagen wir stern und spiegel) und möchten die erste verfügbare Anfrage abrufen. Wie kann dies implementiert werden?
-
-Eine naive (ineffiziente) Lösung würde jedes Ergebnis nacheinander abfragen (via get). Können wir effizienter sein? Ja, wir können select verwenden, um nach dem ersten verfügbaren zukünftigen Ergebnis zu suchen.
-
-TODO
-
 
 ## Starten der Beispiele
 

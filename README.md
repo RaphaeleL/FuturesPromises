@@ -19,7 +19,6 @@ In diesem Projekt / Thema wird Go und C++ gegenüber gestellt um mit Futures und
     - [Pseudo Beispiel](#pseudo-beispiel)
   - [Anforderungen](#anforderungen)
   - [Starten des Projektes](#starten-des-projektes)
-  - [Danksagungen](#danksagungen)
   - [Kontakt](#kontakt)
 
 ## Futures and Promises
@@ -36,47 +35,36 @@ Wenn Futures direkt in eine Programmiersprache integriert ist, definieren diese 
 
 Die Programmiersprache und Bibliothek, die Futures oder Versprechen unterstützt, ist CORBA (mit asynchronem Methodenaufruf (AMI)) und ab Version 5-Java (Concurrent Class Library) mit gleichzeitigen Dienstprogrammen. Seit ECMAScript 6 stellt JavaScript diese Konstrukte bereit (obwohl es immer noch in eingeschränkter Form vorliegt) ([Quelle](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)). C++ bietet auch verschiedene Bibliotheken, von denen die bekannteste Boost ist. Parallelität und Futures können auch in der Standardbibliothek von Standard C++ 11 verwendet werden. Andere Programmiersprachen, die Zukunft und Versprechen unterstützen, sind unter anderem Java, C++, .NET, Python, Swift, Dart, ....
 
-In C# 5.0 und Visual Basic 2013 wird Future implizit über Async verwendet und wartet [Quelle](https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh464924(v=win.10)?redirectedfrom=MSDN). Die entsprechende zukünftige Klasse ist in der parallelen Erweiterung definiert, sodass sie auch in früheren Versionen und anderen Programmiersprachen verwendet werden kann. Sie können es jedoch bei Bedarf selbst implementieren. ([Quelle 1](https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff963556(v=pandp.10)?redirectedfrom=MSDN), [Quelle 2](https://dvanderboom.wordpress.com/2008/07/03/concurrency-with-futures/))
+In C# 5.0 und Visual Basic 2013 wird Future implizit über Async verwendet und wartet ([Quelle](https://docs.microsoft.com/en-us/previous-versions/windows/apps/hh464924(v=win.10)?redirectedfrom=MSDN)). Die entsprechende zukünftige Klasse ist in der parallelen Erweiterung definiert, sodass sie auch in früheren Versionen und anderen Programmiersprachen verwendet werden kann. Sie können es jedoch bei Bedarf selbst implementieren. ([Quelle 1](https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff963556(v=pandp.10)?redirectedfrom=MSDN), [Quelle 2](https://dvanderboom.wordpress.com/2008/07/03/concurrency-with-futures/))
 
 Ein Future ist eine Monade mit einem verwandten Resolver, welcher dem Future einen Wert zuweist. Das Future kann sich in einem von drei Zuständen befinden:
 
-- erfüllt (englisch: promise kept)
-- gebrochen (englisch: promise broken)
-- wartend (englisch: promise pending)
+- erfüllt 
+- gebrochen 
+- wartend 
 
 Wenn der Wert vom Resolver zugewiesen und dadurch bekannt ist, generiert das Future ein Ereignis für welche Rückruffunktionen merkt werden.
 
 ### Pseudo Beispiel
 Der folgende Pseudo Code zeigt die Verwendung von Futures anhand dem asynchronen Zuweisoperatoren `@=`
 ```java
-  var a @= calc_a();
-  var b @= calc_b();
-  var c @= calc_c();
+  var x @= calc_x();
+  var y @= calc_y();
+  var z = calc_z();
 
-  var z = a + b + c;
+  var a := x + y + z;
 ```
 
-> Geht man nun davon aus, das die Berechnung von `c` noch andauert obwohl der Quellcode bereits an der Berechnung von `z` angekommen ist, würde es bei herkömmlicher Nebenläufiger Programmieren zu Fehler kommen. Anhand dem *Future and Promise* Prinzip wird auf die Berechnung von `z` gewartet.
+> Geht man nun davon aus, das die Berechnung von `x` und `y` noch andauert obwohl der Quellcode bereits an der Berechnung von `a` angekommen ist, würde es zu Fehler kommen. Anhand dem Future and Promise Prinzip wird auf die Berechnung von `a` gewartet.
 
 
 ## Anforderungen
-* G++ 10.2.0 (or above)
-* Go 1.12.7 (or above)
+* G++ 10.2.0 (oder drüber)
+* Go 1.12.7 (oder drüber)
 
 ## Starten des Projektes
 
-Jede verwendete Programmiersprache enthält ein eigenes README, in der die Befehle zum Ausführen des Codes aufgeführt und erklärt ist.
-
-## Danksagungen
-
-Dieses Repository wurde anhand folgender Quellen erstellt:
-  - [Prof. Dr. Sulzmann (Autonome Systeme Vorlesung)](https://sulzmann.github.io/AutonomeSysteme/)
-  - [Mozilla Dokumentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-  - [Microsoft Dokumentation](https://docs.microsoft.com/en-us/previous-versions/msp-n-p/ff963556(v=pandp.10)?redirectedfrom=MSDN)
-  - [Dan Vanderboom](https://dvanderboom.wordpress.com/2008/07/03/concurrency-with-futures/)
-
-
-Vielen Dank an die Originalautoren für ihre Arbeit!
+Jede verwendete Programmiersprache enthält ein eigenes README, in welcher auf die einzelnen Aspekte näher eingegangen wird.
 
 ## Kontakt
 Bitte senden Sie eine E-Mail an [Raphaele Licciardo](mailto:lira1011@hs-karlsruhe) für weitere Fragen.
