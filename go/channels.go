@@ -17,7 +17,9 @@ func future(function func() (int, bool)) Future {
 	go func() {
 		value, status := function()
 		fType := futureType{value, status}
-		channel <- fType
+		for {
+			channel <- fType
+		}
 	}()
 	return channel
 }

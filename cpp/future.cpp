@@ -12,7 +12,7 @@ void sub(std::promise<int>&& promise, int a, int b) {
 }
 
 int main(){
-
+    
     int a = 6;
     int b = 3;
     
@@ -30,5 +30,7 @@ int main(){
 
     thread_add.join();
     thread_sub.join();
+
+    return 0;
 
 }
